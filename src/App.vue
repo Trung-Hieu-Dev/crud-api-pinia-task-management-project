@@ -17,6 +17,8 @@
       <button @click="filter = 'fav'">Favorite Task</button>
     </nav>
 
+    <div class="loading" v-if="taskStore.loading">Loading tasks...</div>
+
     <!-- task list -->
     <div class="task-list" v-if="filter === 'all'">
       <h3>All Tasks</h3>
@@ -50,6 +52,9 @@ import TaskForm from './components/TaskForm.vue';
     setup() {
       const taskStore = useTaskStore();
 
+      //fetch tasks
+      taskStore.getTasks();
+
       const filter = ref('all');
 
       return {
@@ -58,7 +63,3 @@ import TaskForm from './components/TaskForm.vue';
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
