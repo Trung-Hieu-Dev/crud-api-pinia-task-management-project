@@ -37,5 +37,5 @@ npm install -g json-server
 ### Run server json
 
 ```sh
-json-server --watch db.json
+json-server --watch your-local/db.json
 ```
