@@ -6,6 +6,11 @@
       <h1>{{ taskStore.name }} Task</h1>
     </header>
 
+    <!-- task form -->
+    <div class="new-task-form">
+      <TaskForm />
+    </div>
+
     <!-- filter -->
     <nav class="filter">
       <button @click="filter = 'all'">All Task</button>
@@ -30,13 +35,15 @@
 </template>
 
 <script>
-import {useTaskStore} from './stores/TaskStore';
-import TaskDetails from './components/TaskDetails.vue';
 import { ref } from 'vue';
+import  { useTaskStore } from './stores/TaskStore';
+import TaskDetails from './components/TaskDetails.vue';
+import TaskForm from './components/TaskForm.vue';
 
   export default {
     components: {
-      TaskDetails
+      TaskDetails,
+      TaskForm
     },
     setup() {
       const taskStore = useTaskStore();
